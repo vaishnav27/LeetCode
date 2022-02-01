@@ -1,4 +1,4 @@
-
+// Using set
 class Solution {
     public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
         HashSet<Integer> s1 = new HashSet<>();
@@ -34,6 +34,35 @@ class Solution {
         List<Integer> res = new ArrayList<Integer>(ans);
 
         return res;
+
+    }
+}
+
+<-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+// Native Aproach
+class Solution {
+    public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+
+        List<Integer> ans = new ArrayList<>();
+
+        int[][] count = new int[3][101];
+
+        for (int i = 0; i < nums1.length; i++) {
+            count[0][nums1[i]] = 1;
+        }
+        for (int i = 0; i < nums2.length; i++) {
+            count[1][nums2[i]] = 1;
+        }
+        for (int i = 0; i < nums3.length; i++) {
+            count[2][nums3[i]] = 1;
+        }
+
+        for (int i = 1; i <= 100; i++) {
+            if (count[0][i] + count[1][i] + count[2][i] > 1)
+                ans.add(i);
+        }
+
+        return ans;
 
     }
 }
