@@ -7,7 +7,7 @@ class Solution {
         List<List<Integer>> list = new ArrayList<>();
 
         solveSubsets(0, nums, n, list, new ArrayList<Integer>());
-        // list.remove(list.get(0));
+       
         return list;
 
     }
@@ -16,7 +16,7 @@ class Solution {
 
         if (!ans.contains(curr)) {
             ans.add(new ArrayList<>(curr));
-            // System.out.println(ans);
+            
         }
 
         for (int i = idx; i < n; i++) {
